@@ -6,12 +6,13 @@
 <h2 style="font-size: 1.7em">Cadastro de Eventos</h2>
     <div tyle="display: flex; justify-content: center; flex-direction: column; align-items: center;">
         <form action="submit" method="post" style="display: flex; flex-direction: column; width: 100%">{% csrf_token %}
+            <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
             <label for="titulo">Título</label>
-            <input type="text" id="titulo" placeholder="Nome do evento" name="titulo" style="width: 300px; height: 25px; margin-bottom: 15px">
+            <input type="text" id="titulo" placeholder="Nome do evento" name="titulo" value="{{ evento.titulo }}" style="width: 300px; height: 25px; margin-bottom: 15px">
             <label for="data">Data do evento</label>
-            <input id="data" type="datetime-local" name="data_evento" style="width: 200px; height: 25px;">
+            <input id="data" type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}" style="width: 200px; height: 25px;">
 
-            <textarea placeholder="Descrição aqui..." cols="30" rows="5" style="margin-top: 15px; width: 300px" name="descricao"></textarea>
+            <textarea placeholder="Descrição aqui..." cols="30" rows="5" style="margin-top: 15px; width: 300px" name="descricao">{{ evento.descricao }}</textarea>
             <div style="display: flex;">
                 <button type="submit" style="width: 140px; height: 25px; margin: 15px 7px 15px 7px" >Salvar</button>
                 <a href="/">

@@ -1,19 +1,20 @@
 {% extends "model-page.html" %}
 
 {% block content %}
-    <h2>Agendamentos</h2>
+   <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; font-size: 2em">Agendamentos</h2>
     <div style="margin: 10px 0px 40px 0">
         <a href="evento/" style="background-color: white;color: black;border: 2px solid green; padding: 7px 20px;text-align: center; text-decoration: none; display: inline-block;" > Novo Evento</a>
     </div>
 <div style="margin-top: 35px">
-    <ul>
+    <ul style="padding-bottom: 10px">
         {% for evento in eventos %}
-            <li>
+            <li style="padding-bottom: 15px; font-size: 1.2em">
                 {{ evento.titulo }} - {{ evento.get_data_evento }}
-                (<a href="#">Editar</a> / <a href="evento/delete/{{evento.id}}/">Excluir</a>)
+                <a style="margin-left: 10px; text-decoration: none" href="evento/?id={{evento.id}}">( Editar</a> / <a style="text-decoration: none" href="evento/delete/{{evento.id}}/">Excluir</a>)
             </li>
         {% endfor %}
     </ul>
 </div>
 {% endblock %}
-background-color: white;color: black;border: 2px solid green; padding: 10px 20px;text-align: center; text-decoration: none; display: inline-block;
+</div>
